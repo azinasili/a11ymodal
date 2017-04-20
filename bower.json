@@ -1,0 +1,28 @@
+{
+  "name": "a11ymodal",
+  "version": "1.0.0",
+  "description": "A fully accessible and customizable modal front-end component.",
+  "homepage": "https://github.com/azinasili/a11ymodal",
+  "authors": "Azin Asili <hello@azinasili.com>",
+  "license": "MIT",
+  "main": "dist/a11ymodal.js",
+  "keywords": [
+    "a11yodal",
+    "a11y",
+    "accessible",
+    "accessiblity",
+    "component",
+    "front-end",
+    "modal",
+    "dialog",
+    "customizable"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bower.json",
+    "package.json",
+    "src"
+  ]
+}
