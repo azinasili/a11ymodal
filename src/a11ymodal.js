@@ -13,23 +13,6 @@ function _queryToArray(el, ctx = document) {
 }
 
 /**
- * Combine two objects based on properties.
- *
- * @param  {Object} source   - Object with original properties
- * @param  {Object} override - Object to override source properties
- * @return {Object}          - Combined object
- */
-function _extendDefaults(source, override) {
-  for (let property in override) {
-    if (override.hasOwnProperty(property)) {
-      source[property] = override[property];
-    }
-  }
-
-  return source;
-}
-
-/**
  * Create a new A11yModal instance.
  *
  * @class  A11yModal
@@ -76,9 +59,9 @@ function A11yModal(trigger, options) {
    * Combine options with defaults.
    */
   if (options && typeof options == 'object') {
-    settings = _extendDefaults(defaults, options);
+    settings = {...defaults, ...options};
   } else {
-    settings = defaults;
+    settings = {...defaults};
   }
 
   /**
