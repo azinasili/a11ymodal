@@ -252,15 +252,4 @@ function A11yModal(trigger, options) {
 /**
  * Export A11yModal component.
  */
-if (typeof define === 'function' && define.amd) {
-  define(function () { return A11yModal; });
-} else if (typeof exports !== 'undefined') {
-  // Support Node.js specific `module.exports` (which can be a function)
-  if (typeof module !== 'undefined' && module.exports) {
-    exports = module.exports = A11yModal;
-  }
-  // But always support CommonJS module 1.1.1 spec (`exports` cannot be a function)
-  exports.A11yModal = A11yModal;
-}
-
 export default A11yModal;
