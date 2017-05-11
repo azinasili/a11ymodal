@@ -1,35 +1,4 @@
 /**
- * Convert a NodeList selection into an array.
- *
- * Take a NodeList and convert it to an array
- * to expose useful array methods and properties.
- *
- * @param  {HTMLElement} el             - NodeList to convert to array
- * @param  {HTMLElement} ctx = document - Context to query for element
- * @return {Array}                      - Array of nodes
- */
-function _queryToArray(el, ctx = document) {
-  return [].slice.call(ctx.querySelectorAll(el));
-}
-
-/**
- * Combine two objects based on properties.
- *
- * @param  {Object} source   - Object with original properties
- * @param  {Object} override - Object to override source properties
- * @return {Object}          - Combined object
- */
-function _extendDefaults(source, override) {
-  for (let property in override) {
-    if (override.hasOwnProperty(property)) {
-      source[property] = override[property];
-    }
-  }
-
-  return source;
-}
-
-/**
  * Create a new A11yModal instance.
  *
  * @class  A11yModal
@@ -76,9 +45,9 @@ function A11yModal(trigger, options) {
    * Combine options with defaults.
    */
   if (options && typeof options == 'object') {
-    settings = _extendDefaults(defaults, options);
+    settings = {...defaults, ...options};
   } else {
-    settings = defaults;
+    settings = {...defaults};
   }
 
   /**
@@ -118,6 +87,7 @@ function A11yModal(trigger, options) {
     focusedBeforeOpen = document.activeElement;
     isModalActive = true;
     currentFocusedIndex = 0;
+    focusable = ELEMENTS[currentFocusedIndex];
 
     if (focusable) focusable.focus();
   }
@@ -136,6 +106,20 @@ function A11yModal(trigger, options) {
     MODAL.setAttribute('aria-hidden', 'true');
 
     isModalActive = false;
+  }
+
+  /**
+   * Convert a NodeList selection into an array.
+   *
+   * Take a NodeList and convert it to an array
+   * to expose useful array methods and properties.
+   *
+   * @param  {HTMLElement} el             - NodeList to convert to array
+   * @param  {HTMLElement} ctx = document - Context to query for element
+   * @return {Array}                      - Array of nodes
+   */
+  function _queryToArray(el, ctx = document) {
+    return [].slice.call(ctx.querySelectorAll(el));
   }
 
   /**
@@ -268,15 +252,4 @@ function A11yModal(trigger, options) {
 /**
  * Export A11yModal component.
  */
-if (typeof define === 'function' && define.amd) {
-  define(function () { return A11yModal; });
-} else if (typeof exports !== 'undefined') {
-  // Support Node.js specific `module.exports` (which can be a function)
-  if (typeof module !== 'undefined' && module.exports) {
-    exports = module.exports = A11yModal;
-  }
-  // But always support CommonJS module 1.1.1 spec (`exports` cannot be a function)
-  exports.A11yModal = A11yModal;
-}
-
 export default A11yModal;
