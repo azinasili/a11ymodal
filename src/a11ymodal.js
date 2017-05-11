@@ -87,6 +87,7 @@ function A11yModal(trigger, options) {
     focusedBeforeOpen = document.activeElement;
     isModalActive = true;
     currentFocusedIndex = 0;
+    focusable = ELEMENTS[currentFocusedIndex];
 
     if (focusable) focusable.focus();
   }
