@@ -30,7 +30,9 @@ import A11yModal from 'a11ymodal';
 
 
 ## Usage
-A11yModal does require a small amount of markup to function, a trigger element, a containing element for the modal, a container for the modal content, an overlay element is optional but is provided in the example.
+A11yModal does require a small amount of markup to function, a trigger element, a containing element for the modal, a container for the modal content. The overlay element is optional but is provided in the example.
+
+A11yModal is a BYOCSS (Bring Your Own CSS) package. You may add whatever classes or styles that suit your needs as none are provided.
 
 ```html
 <!-- Trigger element to open modal  -->
@@ -45,11 +47,11 @@ A11yModal does require a small amount of markup to function, a trigger element, 
   <div data-a11ymodal-overlay data-a11ymodal-close></div>
 </div>
 ```
-**Note:** *A11yModal only needs a trigger element and a container for the modal and one for the modal content. Elements to use, source ordering, and other markup is completely customizable.*
+**Note:** *Elements to use, source ordering, and other markup is completely customizable.*
 
 **Note:** *Close button within modal is optional.*
 
-**Note:** *Adding `data-a11ymodal-close` to the overlay element is optional. Removing the attribute will prevent the modal closing when clicking outside of it's content.*
+**Note:** *Adding `data-a11ymodal-close` to the overlay is optional. Adding the attribute will close the modal when the overlay is clicked.*
 
 Select trigger element to initalise A11yModal on.
 
