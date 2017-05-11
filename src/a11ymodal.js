@@ -1,18 +1,4 @@
 /**
- * Convert a NodeList selection into an array.
- *
- * Take a NodeList and convert it to an array
- * to expose useful array methods and properties.
- *
- * @param  {HTMLElement} el             - NodeList to convert to array
- * @param  {HTMLElement} ctx = document - Context to query for element
- * @return {Array}                      - Array of nodes
- */
-function _queryToArray(el, ctx = document) {
-  return [].slice.call(ctx.querySelectorAll(el));
-}
-
-/**
  * Create a new A11yModal instance.
  *
  * @class  A11yModal
@@ -119,6 +105,20 @@ function A11yModal(trigger, options) {
     MODAL.setAttribute('aria-hidden', 'true');
 
     isModalActive = false;
+  }
+
+  /**
+   * Convert a NodeList selection into an array.
+   *
+   * Take a NodeList and convert it to an array
+   * to expose useful array methods and properties.
+   *
+   * @param  {HTMLElement} el             - NodeList to convert to array
+   * @param  {HTMLElement} ctx = document - Context to query for element
+   * @return {Array}                      - Array of nodes
+   */
+  function _queryToArray(el, ctx = document) {
+    return [].slice.call(ctx.querySelectorAll(el));
   }
 
   /**
